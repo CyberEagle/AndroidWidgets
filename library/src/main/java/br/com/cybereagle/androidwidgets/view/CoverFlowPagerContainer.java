@@ -20,7 +20,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import br.com.cybereagle.androidwidgets.util.ViewUtils;
-import com.nineoldandroids.view.ViewHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,9 +65,8 @@ public class CoverFlowPagerContainer extends PagerContainer{
 
             ViewUtils.enableHardwareLayer(child);
             int childMeasuredWidth = child.getMeasuredWidth();
-            ViewHelper.setPivotX(child, childMeasuredWidth / 2);
-            ViewHelper.setPivotY(child, child.getMeasuredHeight() / 2);
-
+            child.setPivotX(childMeasuredWidth / 2);
+            child.setPivotY(child.getMeasuredHeight() / 2);
 
             child.getLocationInWindow(xy);
             float childX = xy[0];
@@ -78,7 +76,7 @@ public class CoverFlowPagerContainer extends PagerContainer{
             float rotationDegrees = ((containerHalfWidth - childCenterX)/containerHalfWidth) * MAX_ROTATION_ANGLE;
 
 
-            ViewHelper.setRotationY(child, rotationDegrees);
+            child.setRotationY(rotationDegrees);
         }
     }
 

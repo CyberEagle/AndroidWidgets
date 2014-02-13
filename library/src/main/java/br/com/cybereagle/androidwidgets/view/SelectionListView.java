@@ -16,13 +16,13 @@
 
 package br.com.cybereagle.androidwidgets.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Parcelable;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.view.ActionMode;
 import android.util.AttributeSet;
 import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
@@ -37,7 +37,7 @@ public class SelectionListView extends ListView {
 
     private boolean selectableFromTheBeginning;
 
-    private ActionBarActivity activity;
+    private Activity activity;
     ActionMode actionMode;
 
     private boolean selectionMode = false;
@@ -77,7 +77,7 @@ public class SelectionListView extends ListView {
         a.recycle();
 
         setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        activity = (ActionBarActivity) context;
+        activity = (Activity) context;
     }
 
     @Override
@@ -158,7 +158,7 @@ public class SelectionListView extends ListView {
             return;
         }
         if (actionMode == null)
-            actionMode = activity.startSupportActionMode(actionModeCallback);
+            actionMode = activity.startActionMode(actionModeCallback);
 
         actionMode.setTitle(String.format(selectedStringFormat, checkedCount));
     }

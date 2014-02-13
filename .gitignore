@@ -23,6 +23,10 @@ target
 release.properties
 pom.xml.*
 
+#Gradle
+build
+.gradle
+
 #Ant
 build.xml
 ant.properties
@@ -33,3 +37,6 @@ proguard-project.txt
 .DS_Store
 tmp
 .directory
+
+#Don't exclude
+!test.iml
